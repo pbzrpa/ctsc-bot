@@ -152,7 +152,9 @@ class CTSCMNInfo:
         return self.get_daily_coins() * self.get_usd_price()
 
     def get_payout_freq(self):
-        return seconds_to_freq((1440.0 / self.get_mn_count()) * 3600)
+        payments_days = 1440.0 / self.get_mn_count()
+        payments_hours = 24 / payments_days
+        return seconds_to_freq(payments_hours * 3600)
 
     def get_locked_coins(self):
         return self.get_mn_count() * self.get_collateral()
