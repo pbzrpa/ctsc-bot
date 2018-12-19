@@ -259,6 +259,8 @@ async def on_message(message):
             message.content.upper().startswith('!MNINFO') or
             message.content.upper().startswith('!H')):
         await client.process_commands(message)
+    else:
+        return
 
 
 @client.event
